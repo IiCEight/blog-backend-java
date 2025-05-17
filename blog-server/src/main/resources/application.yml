@@ -1,0 +1,67 @@
+spring:
+  profiles:
+    active: dev # This will load the application-dev.yml file
+
+  datasource:
+    # Need to specify database name
+    url: jdbc:mysql://localhost:3306/blog
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+
+  servlet:
+    multipart:
+      # Max size of one file
+      max-file-size: 10MB
+      # Max size of one request including all files and post data
+      max-request-size: 100MB
+  data:
+    redis:
+      host: ${blog.redis.host}
+      port: ${blog.redis.port}
+      database: ${blog.redis.database}
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: altria.blog_pojo.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # enable mapping camel name to underscore name
+    map-underscore-to-camel-case: true 
+
+sky:
+  jwt:
+    # the encrypted secret key 
+    admin-secret-key: saber
+    admin-ttl: 123600000
+    admin-token-name: token
+
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: iisaber
+    region: cn-beijing
+
+
+# springdoc-openapi
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.altria.sky_server.controller
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+logging:
+  level:
+    com.altria.sky_server.mapper: debug
+    org.apache.ibatis: debug

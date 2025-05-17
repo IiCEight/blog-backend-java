@@ -1,0 +1,36 @@
+package altria.blog_pojo.vo;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Locale.Category;
+
+import altria.blog_pojo.entity.Tag;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ArticleInfoVO {
+
+    private Integer id;
+
+    private String title;
+    
+    private String img;
+
+    private String description;
+
+    private CategoryVO category;
+
+    private List<TagVO> tags;
+
+    private String status;
+
+    private Long views;
+    
+    private LocalDateTime createTime;
+    
+    private LocalDateTime updateTime;
+}

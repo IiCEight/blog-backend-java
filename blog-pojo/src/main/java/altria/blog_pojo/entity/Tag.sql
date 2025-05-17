@@ -1,0 +1,7 @@
+CREATE TABLE tag (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    create_time DATETIME DEFAULT NULL,
+    update_time DATETIME DEFAULT NULL
+);
