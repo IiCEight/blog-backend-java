@@ -17,6 +17,7 @@ import altria.blog_pojo.dto.ArticlePageQueryDTO;
 import altria.blog_pojo.entity.Article;
 import altria.blog_pojo.entity.ArticleTag;
 import altria.blog_pojo.vo.ArticleInfoVO;
+import altria.blog_pojo.vo.ArticleVO;
 import altria.blog_server.mapper.ArticleMapper;
 import altria.blog_server.mapper.ArticleTagMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -56,7 +57,7 @@ public class ArticleService {
 
         // For each article, find its tags.
         articleInfoVOs.forEach((articleInfoVO) -> {
-            articleInfoVO.setTags((articleTagMapper.findTagsByArticleId(articleInfoVO.getId())));
+            articleInfoVO.setTags(articleTagMapper.findTagsByArticleId(articleInfoVO.getId()));
             log.info("articleIfoVO {}", articleInfoVO);
         });
         
@@ -64,11 +65,16 @@ public class ArticleService {
     }
 
     public ArticleInfoVO getInfoById(Integer id) {
-        return articleMapper.getInfoById(id);
+        // TODO
+        // return articleMapper.getInfoById(id);
+        return null;
     }
 
-    public String getById(Integer id) {
+    public ArticleVO getById(Integer id) {
+        ArticleVO articleVO = articleMapper.getById(id);
 
-        return articleMapper.getContentById(id);
+        articleVO.setTags(articleTagMapper.findTagsByArticleId(id));
+
+        return articleVO;
     }
 }

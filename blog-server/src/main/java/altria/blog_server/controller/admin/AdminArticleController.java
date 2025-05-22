@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/admin/article")
-public class ArticleController {
+public class AdminArticleController {
 
     @Autowired
     ArticleService articleService;

@@ -8,6 +8,7 @@ import com.github.pagehelper.Page;
 import altria.blog_pojo.dto.ArticlePageQueryDTO;
 import altria.blog_pojo.entity.Article;
 import altria.blog_pojo.vo.ArticleInfoVO;
+import altria.blog_pojo.vo.ArticleVO;
 
 @Mapper
 public interface ArticleMapper {
@@ -19,6 +20,8 @@ public interface ArticleMapper {
     @Select("select content from article where id = #{id}")
     String getContentById(Integer id);
 
-    ArticleInfoVO getInfoById(Integer id);
+    ArticleVO getById(Integer id);
+
+    // ArticleInfoVO getInfoById(Integer id);
 
 }

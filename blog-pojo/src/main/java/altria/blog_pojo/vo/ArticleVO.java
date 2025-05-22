@@ -22,9 +22,9 @@ public class ArticleVO {
 
     private String content;
 
-    private String category;
+    private CategoryVO category;
 
-    private List<String> tags;
+    private List<TagVO> tags;
 
     private String status;
 

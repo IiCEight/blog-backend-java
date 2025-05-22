@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import altria.blog_common.result.Result;
 import altria.blog_pojo.dto.ArticlePageQueryDTO;
 import altria.blog_pojo.vo.ArticleInfoVO;
+import altria.blog_pojo.vo.ArticleVO;
 import altria.blog_server.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Slf4j
@@ -32,9 +32,9 @@ public class ArticleController {
     }
 
     @GetMapping("/{id}")
-    public Result<String> getById(@PathVariable Integer id) {
-
-        return Result.ok(articleService.getById(id));
+    public Result<ArticleVO> getById(@PathVariable Integer id) {
+        log.info("Article id: {}", id);
+        return Result.success(articleService.getById(id));
     }
     
 }

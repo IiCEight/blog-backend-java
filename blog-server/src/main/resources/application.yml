@@ -29,12 +29,12 @@ mybatis:
     # enable mapping camel name to underscore name
     map-underscore-to-camel-case: true 
 
-sky:
-  jwt:
-    # the encrypted secret key 
-    admin-secret-key: saber
-    admin-ttl: 123600000
-    admin-token-name: token
+# blog:
+#   jwt:
+#     # the encrypted secret key 
+#     admin-secret-key: saber
+#     admin-ttl: 123600000
+#     admin-token-name: token
 
 aliyun:
   oss:
