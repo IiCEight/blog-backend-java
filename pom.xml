@@ -41,8 +41,12 @@
         <jaxb-runtime>2.3.3</jaxb-runtime>
         
         <jjwt>0.9.1</jjwt>
-        <knife4j>4.4.0</knife4j>
         <lombok>1.18.30</lombok>
+
+        <!-- OpenAPI and knife4j -->
+        <springdoc>2.8.6</springdoc>
+        <knife4j>4.4.0</knife4j>
+
 	</properties>
 
     <!-- is used to centralize and control the versions of dependencies -->
@@ -100,6 +104,12 @@
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
                 <version>${jaxb-runtime}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc}</version>
             </dependency>
 
             <dependency>

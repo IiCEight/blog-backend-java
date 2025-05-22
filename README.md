@@ -78,6 +78,19 @@ java -jar target/blog-server-0.0.1-SNAPSHOT.jar
 SQL files for tables are in `blog-pojo/src/main/java/altria/blog_pojo/entity/`:
 - `Article.sql`, `Category.sql`, `Tag.sql`, `ArticleTag.sql`
 
+## API Documentation (OpenAPI & Knife4j)
+
+This project uses **OpenAPI** for API documentation and **Knife4j** for an enhanced Swagger UI experience.
+
+### Configuration Example
+
+The OpenAPI and Knife4j configuration is located in `blog-server/src/main/java/altria/blog_server/config/OpenApiConfig.java`:
+
+### How to Use
+- **Swagger UI**: Visit [`/swagger-ui.html`](http://localhost:8080/swagger-ui.html) after starting the server for the standard OpenAPI UI.
+- **Knife4j UI** (**Recommendation**): Visit [`/doc.html`](http://localhost:8080/doc.html) for the enhanced Knife4j documentation interface.
+- API groups are separated for user and admin endpoints for easier navigation.
+
 ## Contribution
 1. Fork the repo and create your branch
 2. Commit your changes
