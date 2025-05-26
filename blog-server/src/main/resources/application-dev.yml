@@ -4,5 +4,18 @@ blog:
         port: 6379
         database: 0
 
-    # mysql:
-        
+    mysql:
+        url: jdbc:mysql://localhost:3306/
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        database: blog
+        username: root
+        password: 123456
+    
+    logging:
+        level: debug
+
+mybatis:
+    configuration:
+        # Enable sql logging in development environment
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

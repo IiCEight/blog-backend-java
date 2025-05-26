@@ -4,10 +4,10 @@ spring:
 
   datasource:
     # Need to specify database name
-    url: jdbc:mysql://localhost:3306/blog
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
+    url: ${blog.mysql.url}${blog.mysql.database}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: ${blog.mysql.driver-class-name}
+    username: ${blog.mysql.username}
+    password: ${blog.mysql.password}
 
   servlet:
     multipart:
@@ -25,7 +25,9 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: altria.blog_pojo.entity
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # Enable in application-dev.yml
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
     # enable mapping camel name to underscore name
     map-underscore-to-camel-case: true 
 
@@ -55,15 +57,24 @@ springdoc:
     - group: 'default'
       paths-to-match: '/**'
       packages-to-scan: com.altria.sky_server.controller
+
 # knife4j
 knife4j:
-  enable: true
-  setting:
-    language: zh_cn
-  # Optional: customize the doc path
-  # doc-path: /doc.html
+    enable: true
+    setting:
+        language: zh_cn
+    # Optional: customize the doc path
+    # doc-path: /doc.html
 
 logging:
   level:
-    com.altria.sky_server.mapper: debug
-    org.apache.ibatis: debug
+    # set which package or class to log
+    '[com.altria.sky_server.mapper]': ${blog.logging.level}
+    '[org.apache.ibatis]': ${blog.logging.level}
+
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

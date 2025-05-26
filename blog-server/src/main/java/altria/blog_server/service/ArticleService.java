@@ -50,6 +50,7 @@ public class ArticleService {
         articleTagMapper.insertBatch(articleTags);
     }
 
+    @Transactional(readOnly = true)
     public List<ArticleInfoVO> pageQuery(ArticlePageQueryDTO articlePageQueryDTO) {
         PageHelper.startPage(articlePageQueryDTO.getPage(), 
                     articlePageQueryDTO.getPageSize());
@@ -70,6 +71,7 @@ public class ArticleService {
         return null;
     }
 
+    @Transactional(readOnly = true)
     public ArticleVO getById(Integer id) {
         ArticleVO articleVO = articleMapper.getById(id);
 

@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
+    /**
+     * Configure the OpenAPI main documentation info (title, description, version).
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
@@ -18,6 +21,9 @@ public class OpenApiConfig {
                         .version("1.0.0"));
     }
 
+    /**
+     * Grouped OpenAPI for user-facing endpoints (controllers in .user package).
+     */
     @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
@@ -27,6 +33,9 @@ public class OpenApiConfig {
                 .build();
     }
 
+    /**
+     * Grouped OpenAPI for admin endpoints (controllers in .admin package).
+     */
     @Bean
     public GroupedOpenApi adminApi() {
         return GroupedOpenApi.builder()
